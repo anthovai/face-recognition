@@ -1,0 +1,163 @@
+FACE RECOGNITION SERVICE — SOFTWARE LICENCE AGREEMENT
+สัญญาอนุญาตให้ใช้สิทธิในซอฟต์แวร์
+
+Licensor / ผู้ให้สิทธิ์ : [ชื่อนิติบุคคลผู้ให้สิทธิ์ — กรอกก่อนส่งมอบ]
+Licensee / ผู้รับสิทธิ์ : [ชื่อนิติบุคคลลูกค้า — กรอกก่อนส่งมอบ]
+Effective date / วันที่มีผล : [วันที่ส่งมอบ — กรอกก่อนส่งมอบ]
+
+ฉบับภาษาไทยและภาษาอังกฤษมีความหมายเดียวกัน หากตีความขัดกัน ให้ยึดฉบับภาษาไทย
+The Thai and English texts carry the same meaning. Where they conflict, the
+Thai text governs.
+
+--------------------------------------------------------------------------
+1. สิ่งที่อนุญาต / GRANT
+--------------------------------------------------------------------------
+
+ผู้ให้สิทธิ์อนุญาตให้ผู้รับสิทธิ์ใช้ซอฟต์แวร์นี้ รวมถึงซอร์สโค้ด แบบ
+
+  (ก) ตลอดไป (perpetual) ไม่มีกำหนดหมดอายุ และไม่มีค่าธรรมเนียมรายปี
+  (ข) ไม่จำกัดจำนวนเครื่อง จำนวนผู้ใช้ หรือจำนวนคำขอ ภายในองค์กรของผู้รับสิทธิ์
+      และบริษัทในเครือที่ผู้รับสิทธิ์ถือหุ้นเกินร้อยละห้าสิบ
+  (ค) แก้ไข ดัดแปลง ต่อยอด และนำไปรวมกับระบบอื่นของผู้รับสิทธิ์ได้
+  (ง) จ้างผู้รับเหมาภายนอกมาแก้ไขให้ได้ โดยผู้รับสิทธิ์ต้องผูกพันผู้รับเหมานั้น
+      ด้วยเงื่อนไขข้อ 2 เป็นลายลักษณ์อักษร และยังคงรับผิดชอบการกระทำของผู้รับเหมา
+
+สิทธิในทรัพย์สินทางปัญญายังเป็นของผู้ให้สิทธิ์ สัญญานี้เป็นการอนุญาตให้ใช้สิทธิ
+ไม่ใช่การโอนกรรมสิทธิ์ งานดัดแปลงที่ผู้รับสิทธิ์สร้างขึ้นเองเป็นของผู้รับสิทธิ์
+แต่ยังคงอยู่ภายใต้ข้อจำกัดข้อ 2 เพราะยังมีซอฟต์แวร์เดิมประกอบอยู่
+
+The Licensor grants the Licensee a perpetual, non-exclusive, non-transferable
+licence to use and modify this software, including its source code, within the
+Licensee's own organisation and its majority-owned affiliates, without limit on
+machines, users or requests, and without recurring fees. Title and intellectual
+property remain with the Licensor; this is a licence to use, not a transfer of
+ownership.
+
+--------------------------------------------------------------------------
+2. สิ่งที่ห้าม / RESTRICTIONS
+--------------------------------------------------------------------------
+
+ผู้รับสิทธิ์จะไม่กระทำการต่อไปนี้ ไม่ว่าโดยมีค่าตอบแทนหรือไม่ก็ตาม
+
+  (ก) ส่งต่อ เผยแพร่ ขาย ให้เช่า ให้ยืม หรือให้สิทธิช่วง (sublicense) ซอฟต์แวร์นี้
+      หรือส่วนหนึ่งส่วนใดของมัน แก่บุคคลภายนอก
+  (ข) เปิดเผยซอร์สโค้ดต่อสาธารณะ รวมถึงการอัปโหลดขึ้น repository สาธารณะ
+      เว็บไซต์แบ่งปันโค้ด หรือชุดข้อมูลฝึกสอนของบริการใดๆ
+  (ค) ให้บริการซอฟต์แวร์นี้แก่บุคคลภายนอกในลักษณะ SaaS หรือ service bureau
+      กล่าวคือ ให้บุคคลภายนอกเรียกใช้เพื่อประโยชน์ของบุคคลภายนอกนั้นเอง
+  (ง) ลบหรือแก้ไขประกาศลิขสิทธิ์ ประกาศสิทธิ์ หรือไฟล์สัญญาฉบับนี้
+
+ข้อ (ค) ไม่ห้ามการที่ผู้รับสิทธิ์เรียกใช้ซอฟต์แวร์นี้ภายในระบบของตนเอง
+เพื่อให้บริการแก่ลูกค้าหรือพนักงานของผู้รับสิทธิ์ ซึ่งเป็นการใช้ตามปกติที่อนุญาตไว้แล้ว
+
+The Licensee shall not redistribute, publish, sell, rent, lend or sublicense
+this software or any part of it to third parties; shall not disclose its source
+code publicly, including uploading it to any public repository, code-sharing
+site, or the training corpus of any service; shall not offer it to third
+parties as a hosted service for those third parties' own benefit; and shall not
+remove or alter this licence or any copyright notice.
+
+Running this software inside the Licensee's own systems to serve the Licensee's
+own customers or staff is ordinary permitted use and is not restricted.
+
+--------------------------------------------------------------------------
+3. องค์ประกอบของบุคคลที่สาม / THIRD-PARTY COMPONENTS
+--------------------------------------------------------------------------
+
+**ข้อ 2 ไม่มีผลกับองค์ประกอบของบุคคลที่สาม** ซึ่งอยู่ภายใต้สัญญาอนุญาตของตนเอง
+และผู้ให้สิทธิ์ไม่มีอำนาจไปจำกัดสิทธิ์เหล่านั้น ได้แก่
+
+  - ไฟล์น้ำหนักโมเดลในโฟลเดอร์ `models/` — MIT และ Apache-2.0
+    รายละเอียดอยู่ใน `models/LICENSES.md`
+  - ไลบรารีที่ระบุใน `requirements.txt` — แต่ละตัวมีสัญญาของตนเอง
+
+สัญญาเหล่านั้นอนุญาตให้ส่งต่อได้ ข้อห้ามในข้อ 2 จึงใช้กับส่วนที่ผู้ให้สิทธิ์
+เขียนขึ้นเองเท่านั้น คือโค้ดในโฟลเดอร์ `app/` ไฟล์สคริปต์ระดับบนสุด
+และเอกสารประกอบ
+
+Clause 2 does not apply to third-party components, which remain under their own
+licences and which the Licensor has no standing to restrict. These include the
+model weights in `models/` (MIT and Apache-2.0; see `models/LICENSES.md`) and
+the libraries listed in `requirements.txt`. Clause 2 restricts only what the
+Licensor wrote: the code under `app/`, the top-level scripts, and the
+documentation.
+
+--------------------------------------------------------------------------
+4. การส่งมอบและการสนับสนุน / DELIVERY AND SUPPORT
+--------------------------------------------------------------------------
+
+ส่งมอบเป็นซอร์สโค้ดครบถ้วนตามสภาพที่เป็นอยู่ ณ วันที่มีผล
+
+สัญญานี้**ไม่รวม**การบำรุงรักษา การแก้ไขข้อบกพร่อง การอัปเดต หรือการสนับสนุน
+ทางเทคนิค หากต้องการ ให้ทำความตกลงแยกต่างหาก
+
+This licence covers the source code as delivered. It does not include
+maintenance, bug fixes, updates, or technical support; those require a separate
+agreement.
+
+--------------------------------------------------------------------------
+5. ข้อจำกัดความรับผิด / WARRANTY AND LIABILITY
+--------------------------------------------------------------------------
+
+ซอฟต์แวร์นี้ส่งมอบ "ตามสภาพ" (AS IS) โดยไม่มีการรับประกันใดๆ ทั้งโดยชัดแจ้ง
+และโดยปริยาย รวมถึงการรับประกันความเหมาะสมกับวัตถุประสงค์เฉพาะอย่าง
+
+ข้อที่ผู้รับสิทธิ์ต้องเข้าใจก่อนนำไปใช้ตัดสินใจใดๆ
+
+  (ก) การเทียบใบหน้าเป็นการประมาณค่าความน่าจะเป็น **ไม่ใช่การพิสูจน์ตัวตนที่แน่นอน**
+      ทุกค่า threshold มีทั้งการยอมรับผิดพลาดและการปฏิเสธผิดพลาดเสมอ
+  (ข) ค่า threshold ที่ให้มาเป็นค่าอ้างอิงของ OpenCV **ไม่ใช่ค่าที่ปรับเทียบแล้ว**
+      ผู้รับสิทธิ์มีหน้าที่ปรับเทียบกับข้อมูลจริงของตนเองก่อนใช้งานจริง
+  (ค) การตรวจภาพปลอม (liveness) ไม่ครอบคลุมหน้ากากคุณภาพสูงหรือ deepfake
+  (ง) ใบหน้าเป็นข้อมูลชีวมิติตาม พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล มาตรา 26
+      **ผู้รับสิทธิ์เป็นผู้ควบคุมข้อมูลส่วนบุคคล** และรับผิดชอบการขอความยินยอม
+      การแจ้งวัตถุประสงค์ ระยะเวลาเก็บ และการลบข้อมูลแต่เพียงผู้เดียว
+      ซอฟต์แวร์นี้ไม่เก็บข้อมูลใดไว้ จึงไม่มีข้อมูลของผู้ให้สิทธิ์ให้ต้องลบ
+
+ความรับผิดรวมของผู้ให้สิทธิ์ไม่ว่าในมูลเหตุใด จะไม่เกินค่าตอบแทนที่ผู้ให้สิทธิ์
+ได้รับจริงตามสัญญาฉบับนี้ และผู้ให้สิทธิ์ไม่รับผิดต่อความเสียหายทางอ้อม
+ความเสียหายสืบเนื่อง หรือการขาดกำไร
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED. Face matching is a probabilistic estimate, not proof of identity;
+every threshold carries both false accepts and false rejects. The supplied
+thresholds are reference values, not calibrated ones. Liveness detection does
+not defeat high-quality masks or deepfakes. Facial data is sensitive personal
+data under Thailand's PDPA section 26 (and GDPR article 9 where applicable);
+the Licensee is the data controller and is solely responsible for consent,
+notice, retention and erasure. The Licensor's total liability shall not exceed
+the fees actually received under this agreement, and the Licensor is not liable
+for indirect, consequential or lost-profit damages.
+
+--------------------------------------------------------------------------
+6. การสิ้นสุด / TERMINATION
+--------------------------------------------------------------------------
+
+สิทธิตามข้อ 1 สิ้นสุดลงทันทีหากผู้รับสิทธิ์ฝ่าฝืนข้อ 2 และไม่แก้ไขภายในสามสิบ (30) วัน
+นับแต่ได้รับแจ้งเป็นลายลักษณ์อักษร เมื่อสิ้นสุดแล้ว ผู้รับสิทธิ์ต้องหยุดใช้และ
+ทำลายสำเนาทั้งหมด ยกเว้นสำเนาที่กฎหมายบังคับให้เก็บไว้
+
+ข้อ 2, 3, 5 และ 7 ยังคงมีผลต่อไปแม้สัญญาสิ้นสุด
+
+--------------------------------------------------------------------------
+7. กฎหมายที่ใช้บังคับ / GOVERNING LAW
+--------------------------------------------------------------------------
+
+สัญญานี้อยู่ภายใต้กฎหมายไทย ข้อพิพาทให้อยู่ในเขตอำนาจของศาลไทย
+
+This agreement is governed by the laws of Thailand, and disputes fall under the
+jurisdiction of the Thai courts.
+
+--------------------------------------------------------------------------
+
+Copyright (c) [ปี] [ชื่อนิติบุคคลผู้ให้สิทธิ์]. All rights reserved.
+สงวนลิขสิทธิ์
+
+--------------------------------------------------------------------------
+หมายเหตุสำหรับผู้ให้สิทธิ์ (ลบบรรทัดเหล่านี้ก่อนส่งมอบ)
+
+* ช่องที่ต้องกรอก: ชื่อผู้ให้สิทธิ์ ชื่อลูกค้า วันที่มีผล และปีลิขสิทธิ์
+* เอกสารนี้ร่างขึ้นเป็นแบบร่างทางเทคนิค ไม่ใช่คำแนะนำทางกฎหมาย
+  ควรให้ทนายตรวจก่อนลงนาม โดยเฉพาะข้อ 5 (เพดานความรับผิด) และข้อ 6
+* ข้อ 3 มีความสำคัญและห้ามตัดออก โมเดลเป็น MIT/Apache-2.0 ซึ่งอนุญาตให้ส่งต่อได้
+  การอ้างว่าห้ามส่งต่อทั้งแพ็กเกจโดยไม่แยกส่วนนี้ ทำให้สัญญาขัดกับไลเซนส์ต้นทาง

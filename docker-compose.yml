@@ -1,0 +1,38 @@
+# The face recognition service on its own.
+#
+# The port is published to loopback only. This service answers "is this the
+# same person" about whatever photo it is handed, so the network that can
+# reach it is part of its access control, not just the API key. Change the
+# binding deliberately, not by copying an example.
+
+services:
+  face:
+    build:
+      context: .
+    environment:
+      # Callers send it as X-Face-Key. Unset disables the check entirely —
+      # only ever do that on a machine nobody else can reach.
+      FACE_API_KEY: ${FACE_API_KEY:-change-me}
+
+      # Thresholds. These are OpenCV's reference values, not calibrated ones:
+      # measure against your own enrolment photos before production. See
+      # README, "การปรับ threshold".
+      FACE_MATCH_THRESHOLD: ${FACE_MATCH_THRESHOLD:-0.363}
+      FACE_REVIEW_MIN: ${FACE_REVIEW_MIN:-0.30}
+      FACE_LIVENESS_THRESHOLD: ${FACE_LIVENESS_THRESHOLD:-0.60}
+      FACE_DET_SCORE: ${FACE_DET_SCORE:-0.80}
+      FACE_MIN_SIZE: ${FACE_MIN_SIZE:-80}
+    volumes:
+      # Model weights live on the host so the image stays small and the
+      # licence-audited files are visible from outside the container.
+      # Run models/fetch.sh once before the first start.
+      - ./models:/app/models:ro
+    ports:
+      - "127.0.0.1:${FACE_PORT:-9000}:9000"
+    healthcheck:
+      test: ["CMD", "python", "-c",
+             "import urllib.request;urllib.request.urlopen('http://localhost:9000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped

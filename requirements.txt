@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+opencv-python-headless>=4.10
+onnxruntime
+numpy
+python-multipart
+pytest
+httpx

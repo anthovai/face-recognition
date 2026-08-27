@@ -1,0 +1,18 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+.env
+
+# Fetched by models/fetch.sh. The two MiniFASNet files ARE tracked — see
+# models/LICENSES.md for why those ship and these do not.
+models/face_detection_yunet_2023mar.onnx
+models/face_recognition_sface_2021dec.onnx
+
+# Real faces used for calibration must never reach a repository.
+tests/faces/
+
+# Public-domain portraits fetched by fetch-reference-faces.py.
+tests/faces-public/
+
+reports/
