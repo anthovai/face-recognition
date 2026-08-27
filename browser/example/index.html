@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proctor browser modules — ตัวอย่าง</title>
+<link rel="stylesheet" href="../proctor.css">
+<style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+           max-width: 720px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; }
+    .stage { position: relative; background: #111; border-radius: 12px; overflow: hidden; }
+    video { width: 100%; display: block; }
+    button { font: inherit; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; }
+    #log { background: #f4f4f5; border-radius: 8px; padding: 0.75rem 1rem;
+           font-family: ui-monospace, monospace; font-size: 0.8rem;
+           max-height: 260px; overflow: auto; white-space: pre-wrap; }
+    .note { background: #fff8e1; border-left: 4px solid #f0b429;
+            padding: 0.75rem 1rem; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<h1>ตัวอย่างการใช้งาน</h1>
+
+<p class="note">
+  ตัวอย่างนี้ <strong>ไม่เรียกเซิร์ฟเวอร์จริง</strong> — ใช้ api ปลอมที่บันทึกลง
+  console ด้านล่างแทน เพื่อให้เห็นว่าโมดูลตัดสินใจอะไรบ้างโดยไม่ต้องมี backend
+  ตอนใช้งานจริงให้แทนที่ด้วย <code>Proctor.createApi({baseUrl: '/api/proctor'})</code>
+  ซึ่งจะยิงไปที่ backend ของคุณ (ดู <code>src/api.js</code>)
+</p>
+
+<p>ตั้ง <strong>เม้าหยุดนิ่ง 8 วินาที</strong> เตือนล่วงหน้า 4 วินาที —
+   อย่าขยับเม้าแล้วดูว่าเกิดอะไรขึ้น หรือลองสลับแท็บดู</p>
+
+<p class="note">
+  ตัวอย่างนี้ตั้ง <code>video: null</code> คือไม่มีสื่อให้คุม เหมือนกรณีทำข้อสอบ —
+  ทุกการตรวจจะทำงานตลอดเวลาที่หน้าเปิดอยู่<br>
+  ถ้าคุณมีวิดีโอจริง ส่ง element เข้าไปแทน โมดูลจะ <strong>หยุดวิดีโอ</strong>
+  เมื่อพบความผิดปกติ และจะ<strong>ไม่ตรวจอะไรเลยระหว่างที่วิดีโอหยุดอยู่</strong>
+  เพราะการหยุดดูเองไม่ใช่ความผิด
+</p>
+
+<p>
+  <button id="start">เริ่มเฝ้าดู</button>
+  <button id="stop">หยุด</button>
+</p>
+
+<h2>สิ่งที่โมดูลบันทึก</h2>
+<div id="log">ยังไม่เริ่ม</div>
+
+<script src="../src/camera.js"></script>
+<script src="../src/lockdown.js"></script>
+<script src="../src/strings.js"></script>
+<script src="../src/api.js"></script>
+<script src="../src/attention-monitor.js"></script>
+<script>
+var logEl = document.getElementById('log');
+var lines = [];
+function show(text) {
+    lines.push(new Date().toLocaleTimeString() + '  ' + text);
+    logEl.textContent = lines.slice(-40).join('\n');
+    logEl.scrollTop = logEl.scrollHeight;
+}
+
+// A stand-in for your backend. Every call resolves the way the real one
+// would, so the module behaves exactly as it will in production.
+var fakeApi = {
+    analyze: function () {
+        return Promise.resolve({ok: true, present: true});
+    },
+    verify: function () {
+        return Promise.resolve({ok: true, decision: 'pass', similarity: 0.71});
+    },
+    storeEvidence: function (kind, reason) {
+        show('evidence  ' + kind + ' (' + reason + ')');
+        return Promise.resolve({ok: true, evidenceid: 1});
+    },
+    logEvent: function (type, detail) {
+        show('event     ' + type + '  ' + JSON.stringify(detail));
+        return Promise.resolve({ok: true});
+    }
+};
+
+var monitor = null;
+
+document.getElementById('start').addEventListener('click', function () {
+    if (monitor) { return; }
+    monitor = new Proctor.AttentionMonitor({
+        // No media to police. Pass your <video> element here instead and it
+        // will be paused on every interruption, and left alone while it is
+        // already paused.
+        video: null,
+        api: fakeApi,
+        strings: Proctor.strings.th,
+
+        mouseIdleSeconds: 8,
+        mouseIdleWarnSec: 4,
+        clickConfirmSeconds: 0,
+        // No camera in this example, so the two face checks are switched off.
+        // Give it getSnapshot and a non-zero interval to turn them back on.
+        presenceSeconds: 0,
+        verifySeconds: 0,
+        randomClipsPerHour: 0,
+        strictLockdown: false,
+        desktopNotification: false,
+
+        onTerminate: function (info) {
+            show('TERMINATED ' + info.type);
+        }
+    });
+    monitor.start();
+    show('เริ่มแล้ว — อย่าขยับเม้า 8 วินาที');
+});
+
+document.getElementById('stop').addEventListener('click', function () {
+    if (!monitor) { return; }
+    monitor.stop();
+    monitor = null;
+    show('หยุดแล้ว');
+});
+</script>
+</body>
+</html>

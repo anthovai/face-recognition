@@ -1,0 +1,177 @@
+/* Styles for the overlay, the countdown badge and the camera preview.
+   Kept as a stylesheet rather than set inline so you can restyle any of it to
+   match your own theme without editing the module that draws it.
+
+   The .btn class on the overlay button is left in place: it does nothing on
+   its own here, and it means the button inherits your framework's button
+   styling if you happen to use one that defines it. */
+
+/* Overlay drawn over the media video when the monitor interrupts playback.
+   The original prototype set these inline; as a stylesheet a site can restyle
+   them to match its theme without touching the module. */
+
+.proctor-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 1rem;
+    text-align: center;
+    border-radius: inherit;
+    background: rgba(4, 8, 18, 0.55);
+    backdrop-filter: blur(3px);
+    color: #fff;
+    z-index: 50;
+}
+
+.proctor-overlay-blocking {
+    background: rgba(4, 8, 18, 0.86);
+}
+
+/* No media to sit over — an exam. Fixed to the viewport instead of absolute
+   inside a player, or `inset: 0` against the page would stretch the overlay
+   to the full scroll height and leave the message somewhere off screen. */
+.proctor-overlay-standalone {
+    position: fixed;
+    z-index: 1050;
+}
+
+.proctor-overlay-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.proctor-overlay-message {
+    font-size: 0.9rem;
+    max-width: 36ch;
+    opacity: 0.9;
+}
+
+.proctor-overlay-btn {
+    margin-top: 0.4rem;
+}
+
+/* Camera preview. Mirrored so it reads like a mirror to the person; the
+   captured frames are drawn straight from the video element and stay
+   unmirrored, which is what the yaw sign convention depends on. */
+
+.proctor-preview {
+    width: 100%;
+    max-width: 480px;
+    border-radius: 12px;
+    background: #000;
+    transform: scaleX(-1);
+}
+
+.proctor-instruction {
+    min-height: 2rem;
+    margin-top: 0.75rem;
+}
+
+.proctor-media-stage {
+    position: relative;
+    max-width: 960px;
+}
+
+.proctor-media-video {
+    width: 100%;
+    border-radius: 12px;
+    background: #000;
+}
+
+/* Keeps the person aware they are on camera without covering the media. */
+.proctor-preview-corner {
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    width: 22%;
+    max-width: 200px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* The background camera feed during a media or a quiz attempt.
+   Off-screen rather than display:none: a hidden element still needs a real
+   size and to still be playing for the browser to keep decoding frames, and
+   snapshot() reads videoWidth/videoHeight straight off it. Disclosure that
+   the camera is running lives in the monitor banner and the notice the
+   person agreed to, not in a picture of themselves in the corner. */
+.proctor-preview-attempt {
+    position: fixed;
+    left: -9999px;
+    top: 0;
+    width: 160px;
+    height: 120px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* A running countdown to a pause that has not happened yet — separate from
+   .proctor-overlay, which only appears once the video is actually paused.
+   Non-blocking: the media keeps playing under it until the count reaches 0. */
+/* The class is doubled to outrank Bootstrap's `.ratio > *`, which is where
+   this badge lands on a media page: that rule gives every direct child of an
+   aspect-ratio box `width: 100%; height: 100%; top: 0; left: 0`, and carries
+   the same specificity as a single class, so it wins on source order alone.
+   The badge came out stretched over the whole player — a red ellipse the size
+   of the video, because a 999px radius on a 800x500 box is an ellipse.
+
+   Sized explicitly for the same reason: not declaring width and height is
+   what let the container's rule decide them. */
+.proctor-countdown.proctor-countdown {
+    position: absolute;
+    top: 0.6rem;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%);
+    max-width: 90%;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(198, 46, 46, 0.92);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 40;
+    pointer-events: none;
+}
+
+/* No player to sit over — an exam. Pinned to the viewport instead. */
+.proctor-countdown.proctor-countdown-standalone {
+    position: fixed;
+    top: 0.6rem;
+    z-index: 1050;
+}
+
+/* Evidence gallery on the report page. */
+.proctor-evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.proctor-evidence-item {
+    margin: 0;
+}
+
+.proctor-evidence-item img,
+.proctor-evidence-item video {
+    width: 100%;
+    border-radius: 8px;
+    background: #000;
+}
+
+.proctor-evidence-item figcaption {
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+}
