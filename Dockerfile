@@ -1,9 +1,20 @@
 FROM python:3.12-slim
 
-# opencv-python-headless still needs libGL's stubs for some codecs.
-RUN apt-get update && apt-get install -y --no-install-recommends \
-        libglib2.0-0 \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+# No apt-get step, deliberately.
+#
+# There was one: `apt-get install libglib2.0-0`, carried over from the days
+# when opencv-python (the full build, with GUI support) needed it. The headless
+# wheel does not — verified by building without it and running the whole
+# pipeline, detection through liveness through matching, on real photographs.
+#
+# Removing it is not tidiness. It was the only thing here that reached a
+# Debian mirror, and on a server whose network could not get to deb.debian.org
+# the install failed at that line with a timeout and a 404 — a face service
+# that would not build because of a package it never used.
+#
+# If you pin opencv-python-headless below 4.10, check this again: older wheels
+# did link against libglib, and the failure is an ImportError on `import cv2`
+# rather than anything about the missing package.
 
 WORKDIR /app
 COPY requirements.txt .
